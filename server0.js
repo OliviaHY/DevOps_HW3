@@ -5,7 +5,6 @@ var fs      = require('fs')
 var app = express()
 // REDIS
 var client = redis.createClient(6379, '127.0.0.1', {})
-
 ///////////// WEB ROUTES
 
 // client.set("string key", "string val", redis.print);
@@ -53,7 +52,7 @@ app.get('/recent', function(req, res) {
   client.lrange("recent",0,-1,function(err,reply)
   {
     console.log(reply);
-    res.send(reply)
+    res.send(reply);
   });
 })
 
@@ -90,7 +89,7 @@ app.get('/meow', function(req, res) {
     client.lpop("images",function(err,reply)
    {
     if (err) throw err
-    console.log(reply);
+    //console.log(reply);
     res.write("<h1>\n<img src='data:my_pic.jpg;base64,"+reply+"'/>");
     res.end();
    });
@@ -105,6 +104,7 @@ var server = app.listen(3000, function () {
 
   console.log('Example app listening at http://%s:%s', host, port)
 })
+
 
 
 
