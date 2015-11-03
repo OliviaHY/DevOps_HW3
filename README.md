@@ -181,6 +181,6 @@ Upload image in another teminal:
 
 ### Result
 
-![result](result.gif)
+![result](gif/result.gif)
 
 
